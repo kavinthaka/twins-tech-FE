@@ -25,17 +25,17 @@ export default function ProductDetailPage() {
       </Link>
       <div style={{ display: 'flex', gap: 32, marginTop: 16 }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={product.imageUrl} alt={product.name} style={{ borderRadius: 8 }} />
+        <img src={product.imageUrls[0]} alt={product.name} style={{ borderRadius: 8 }} />
         <div>
           <h1>{product.name}</h1>
           <p style={{ color: '#aab1bd' }}>{product.description}</p>
           <p>
             <strong>${product.price.toFixed(2)}</strong> · {product.category}
-            {product.stock !== undefined && ` · ${product.stock} in stock`}
+            {product.qty !== undefined && ` · ${product.qty} in stock`}
           </p>
           <button
             onClick={() => dispatch(addToCart(product))}
-            disabled={product.stock !== undefined && product.stock <= 0}
+            disabled={product.qty !== undefined && product.qty <= 0}
             style={{ padding: '8px 16px', cursor: 'pointer', borderRadius: 6 }}
           >
             Add to cart

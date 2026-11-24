@@ -5,9 +5,9 @@ export interface Product {
     oldPrice?: number;
     rating?: number;
     price: number;
-    imageUrl: string;
+    imageUrls: string[];
     category: string;
-    stock?: number;
+    qty?: number;
     description: string;
 }
 

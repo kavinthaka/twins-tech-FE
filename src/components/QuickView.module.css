@@ -1,0 +1,170 @@
+﻿.dialog {
+    position: fixed;
+    inset: 0;
+    box-sizing: border-box;
+    width: min(94vw, 1040px);
+    max-height: 90dvh;
+    margin: auto;
+    padding: 36px;
+    overflow: auto;
+    border: 1px solid #21262d;
+    border-radius: 16px;
+    background: #161b22;
+    color: #e6e9ef;
+}
+
+.dialog::backdrop {
+    background: rgb(13 17 23 / 70%);
+    backdrop-filter: blur(4px);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px;
+    align-items: start;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+}
+
+.mainImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+    border: 1px solid #21262d;
+    border-radius: 12px;
+    background: #0d1117;
+}
+
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.thumbnails button,
+.close,
+.stepper {
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    background: #0d1117;
+    color: #aab1bd;
+}
+
+.thumbnails button {
+    padding: 3px;
+}
+
+.thumbnails img {
+    display: block;
+    object-fit: contain;
+}
+
+.thumbnails button[aria-pressed="true"],
+.thumbnails button:hover,
+.close:hover {
+    border-color: #7b5cff;
+    color: #e6e9ef;
+}
+
+.details {
+    display: grid;
+    gap: 16px;
+    padding-top: 20px;
+}
+
+.details h2,
+.details p {
+    margin: 0;
+}
+
+.details h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    line-height: 1.2;
+}
+
+.secondary,
+.price del {
+    color: #aab1bd;
+}
+
+.rating,
+.price,
+.quantity,
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating svg {
+    color: #b9a4ff;
+}
+
+.price {
+    color: #b9a4ff;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.price del {
+    font-size: 1rem;
+}
+
+.stepper button,
+.add {
+    color: #e6e9ef;
+    font: inherit;
+}
+
+.stepper button {
+    min-width: 40px;
+    min-height: 40px;
+    border: 0;
+    background: transparent;
+}
+
+.add {
+    padding: 12px;
+    border: 0;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #7b5cff, #9d7bff);
+    color: #0d1117;
+    font-weight: 700;
+}
+
+.dialog button:focus-visible {
+    outline: 2px solid #b9a4ff;
+    outline-offset: 2px;
+}
+
+.dialog button:disabled {
+    opacity: 0.45;
+}
+
+@media (max-width: 639px) {
+    .dialog {
+        padding: 60px 16px 20px;
+    }
+
+    .layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .details {
+        padding-top: 0;
+    }
+}
